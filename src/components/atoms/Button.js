@@ -6,20 +6,20 @@ import {NOOP} from "../../utils/constants";
 
 const Button = ({
     label,
+    form = '',
     type = 'button',
     onClick = NOOP,
     disabled = false,
     className = '',
-}) => {
-    return (
-        <button type={type} css={style} onClick={onClick} disabled={disabled} className={className}>
-            {label}
-        </button>
-    );
-};
+}) => (
+    <button form={form} type={type} css={style} onClick={onClick} disabled={disabled} className={className}>
+        {label}
+    </button>
+);
 
 Button.propTypes = {
     label: PropTypes.string.isRequired,
+    form: PropTypes.string,
     type: PropTypes.string,
     onClick: PropTypes.func,
     disabled: PropTypes.bool,
