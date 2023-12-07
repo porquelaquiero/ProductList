@@ -3,11 +3,9 @@ import React from 'react';
 import {css} from '@emotion/react';
 import PropTypes from 'prop-types';
 
-const Text = ({children, className = ''}) => {
-    return (
-        <span className={className} css={style}>{children}</span>
-    );
-};
+const Text = ({children, className = ''}) => (
+    <span className={className} css={style}>{children}</span>
+);
 
 Text.propTypes = {
     children: PropTypes.node.isRequired,

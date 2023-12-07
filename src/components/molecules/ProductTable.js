@@ -6,38 +6,36 @@ import Button from "../atoms/Button";
 import Text from "../atoms/Text";
 
 const ProductTable = ({
-                          handleDelete,
-                          entries,
-                      }) => {
-    return (
-        <table css={tableStyle}>
-            <thead>
-            <tr css={tableHeaderStyle}>
-                <th css={tableCellStyle}><Text>Product Title</Text></th>
-                <th css={tableCellStyle}><Text>Source</Text></th>
-                <th css={tableCellStyle}><Text>Action</Text></th>
+    handleDelete,
+    entries,
+}) => (
+    <table css={tableStyle}>
+        <thead>
+        <tr css={tableHeaderStyle}>
+            <th css={tableCellStyle}><Text>Product Title</Text></th>
+            <th css={tableCellStyle}><Text>Source</Text></th>
+            <th css={tableCellStyle}><Text>Action</Text></th>
+        </tr>
+        </thead>
+        <tbody>
+        {entries.map((entry, index) => (
+            <tr key={index} css={tableRowStyle}>
+                <td css={tableCellStyle}>
+                    <Text>{entry.productTitle}</Text>
+                </td>
+                <td css={tableCellStyle}><Text>{entry.source}</Text></td>
+                <td css={tableCellStyle}>
+                    <Button
+                        onClick={() => handleDelete(index)}
+                        label={'Delete'}
+                        css={buttonStyle}
+                    />
+                </td>
             </tr>
-            </thead>
-            <tbody>
-            {entries.map((entry, index) => (
-                <tr key={index} css={tableRowStyle}>
-                    <td css={tableCellStyle}>
-                        <Text>{entry.productTitle}</Text>
-                    </td>
-                    <td css={tableCellStyle}><Text>{entry.source}</Text></td>
-                    <td css={tableCellStyle}>
-                        <Button
-                            onClick={() => handleDelete(index)}
-                            label={'Delete'}
-                            css={buttonStyle}
-                        />
-                    </td>
-                </tr>
-            ))}
-            </tbody>
-        </table>
-    );
-};
+        ))}
+        </tbody>
+    </table>
+);
 
 ProductTable.propTypes = {
     handleDelete: PropTypes.func.isRequired,

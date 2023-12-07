@@ -8,38 +8,36 @@ import Container from "../atoms/Container";
 import Text from "../atoms/Text";
 
 const ProductForm = ({
-                         handleTitleChange,
-                         handleSourceChange,
-                         handleSubmit,
-                         productValue,
-                         sourceValue,
-                     }) => {
-    return (
-        <Container>
-            <form id={'product-form'} css={formStyle} onSubmit={handleSubmit}>
-                <label css={labelStyle}>
-                    <Text>Product Title</Text>
-                    <Input type="text" value={productValue} onChange={handleTitleChange} />
-                </label>
-                <label css={labelStyle}>
-                    <Text>Source</Text>
-                    <select value={sourceValue} onChange={handleSourceChange} css={selectStyle}>
-                        <option value="YouTube">YouTube</option>
-                        <option value="Google">Google</option>
-                        <option value="ChatGPT">ChatGPT</option>
-                    </select>
-                </label>
-            </form>
-            <Button
-                form={'product-form'}
-                type="submit"
-                disabled={!productValue.trim()}
-                label={'Submit'}
-                css={buttonStyle}
-            />
-        </Container>
-    );
-};
+     handleTitleChange,
+     handleSourceChange,
+     handleSubmit,
+     productValue,
+     sourceValue,
+ }) => (
+    <Container>
+        <form id={'product-form'} css={formStyle} onSubmit={handleSubmit}>
+            <label css={labelStyle}>
+                <Text>Product Title</Text>
+                <Input type="text" value={productValue} onChange={handleTitleChange}/>
+            </label>
+            <label css={labelStyle}>
+                <Text>Source</Text>
+                <select value={sourceValue} onChange={handleSourceChange} css={selectStyle}>
+                    <option value="YouTube">YouTube</option>
+                    <option value="Google">Google</option>
+                    <option value="ChatGPT">ChatGPT</option>
+                </select>
+            </label>
+        </form>
+        <Button
+            form={'product-form'}
+            type="submit"
+            disabled={!productValue.trim()}
+            label={'Submit'}
+            css={buttonStyle}
+        />
+    </Container>
+);
 
 ProductForm.propTypes = {
     handleTitleChange: PropTypes.func.isRequired,

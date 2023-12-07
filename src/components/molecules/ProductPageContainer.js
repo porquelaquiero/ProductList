@@ -4,13 +4,11 @@ import {css} from '@emotion/react';
 import PropTypes from 'prop-types';
 import Container from "../atoms/Container";
 
-const ProductPageContainer = ({children}) => {
-    return (
-        <Container css={style}>
-            {children}
-        </Container>
-    );
-};
+const ProductPageContainer = ({children}) => (
+    <Container css={style}>
+        {children}
+    </Container>
+);
 
 ProductPageContainer.propTypes = {
     children: PropTypes.node.isRequired,

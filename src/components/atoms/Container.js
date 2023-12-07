@@ -3,13 +3,11 @@ import React from 'react';
 import {css} from '@emotion/react';
 import PropTypes from 'prop-types';
 
-const Container = ({children, className = ''}) => {
-    return (
-        <div css={containerStyle} className={className}>
-            {children}
-        </div>
-    );
-};
+const Container = ({children, className = ''}) => (
+    <div css={containerStyle} className={className}>
+        {children}
+    </div>
+);
 
 Container.propTypes = {
     children: PropTypes.node.isRequired,
